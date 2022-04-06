@@ -1,14 +1,26 @@
+
 import Utils.KeyHandler;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.OnlineStatus;
+import net.dv8tion.jda.api.entities.Activity;
 
 import javax.security.auth.login.LoginException;
+import java.util.logging.Logger;
 
 public class Launcher {
 
-    public static void main(String[] args) throws LoginException {
+    private static final Logger LOG = Logger.getLogger("Launcher");
 
-        JDA jda = JDABuilder.createDefault(KeyHandler.discordKey)
-                .build();
+    public static void main(String[] args) throws LoginException, InterruptedException {
+
+        LOG.info("Starting up the bot..");
+
+        JDA jda = JDABuilder.createDefault(KeyHandler.DISCORDKEY)
+                .setActivity(Activity.competing("Minecraft."))
+                .setStatus(OnlineStatus.INVISIBLE) // Hide our online status for now
+                .build()
+                .awaitReady();
+
     }
 }
