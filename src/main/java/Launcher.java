@@ -1,4 +1,6 @@
 
+import Events.Messaging;
+import Events.Ready;
 import Utils.KeyHandler;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -19,6 +21,8 @@ public class Launcher {
         JDA jda = JDABuilder.createDefault(KeyHandler.DISCORDKEY)
                 .setActivity(Activity.competing("Minecraft."))
                 .setStatus(OnlineStatus.INVISIBLE) // Hide our online status for now
+                .addEventListeners(new Ready())
+                .addEventListeners(new Messaging())
                 .build()
                 .awaitReady();
 
