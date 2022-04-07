@@ -20,7 +20,7 @@ public class Weather extends Command {
     private String location;
 
     public Weather() {
-        usage.put("!weather <zipcode>", "Gives you the daily forecast (!weather 96793");
+        usage.put("!weather <zipcode>", "Gives you the daily forecast (!weather 96793)");
     }
 
     private MessageEmbed weatherEmbed() {

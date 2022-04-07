@@ -13,24 +13,24 @@ Jsoup   - HTML Parser, used for webscraping sites.
 
 ## Commands
 
-| Category   | Command              | Arguments          | Result                                                  | Example Usage       |
-|------------|----------------------|--------------------|---------------------------------------------------------|---------------------|
-| Info       | !help                |                    | A help card displaying all commands                     | !help               |
-| Info       | !help                | Command name       | Usage details on how a command works.                   | !help ping          |
-|            |                      |                    |                                                         |                     |
-| API        | !ping                |                    | Have the bot respond with a Pong!                       | !ping               |
-| API        | !weather             | Zipcode            | Get a current weather forecast!                         | !weather 96793           |
-|            |                      |                    |                                                         |                     |
-| Misc       | !ping                |                    | Have the bot respond with a Pong!                       | !ping               |
-| Misc       | !whois               |                    | Displays info about user in a card.                     | !whois @John        |
-|            |                      |                    |                                                         |                     |
-| Games      | !coinflip            |                    | Flip a coin and see if its Heads or Tails!              | !coinflip           |
-| Games      | !coinflip bet        | Amount to wager    | Place a wager on it landing Tails.                      | !coinflip bet 1000  |
-| Games      | !coinflip balance    |                    | Check your bank balance                                 | !coinflip balance   |
-| Games      | !coinflip reset      |                    | Restart your balance if you go broke.                   | !coinflip reset     |
-|            |                      |                    |                                                         |                     |
-| Moderation | !timeout             | @Mentioned User(s) | Disables the user(s) from participating in any channel. | !timeout @Tom @John |
-| Moderation | !mute or !unmute     | @Mentioned User(s) | Disables/Enables user(s) to speak in any channel.       | !mute @Tom @John    |
+| Category   | Command              | Arguments          | Result                                                  | Example Usage        |
+|------------|----------------------|--------------------|---------------------------------------------------------|----------------------|
+| Info       | !help                |                    | A help card displaying all commands                     | !help                |
+| Info       | !help                | Command name       | Usage details on how a command works.                   | !help ping           |
+|            |                      |                    |                                                         |                      |
+| API        | !joke                |                    | Have the bot tell you a knee-slappin dad joke!          | !joke                |
+| API        | !weather             | Zipcode            | Get a current weather forecast!                         | !weather 96793       |
+|            |                      |                    |                                                         |                      |
+| Misc       | !ping                |                    | Have the bot respond with a Pong!                       | !ping                |
+| Misc       | !whois               |                    | Displays info about user in a card.                     | !whois @John         |
+|            |                      |                    |                                                         |                      |
+| Games      | !coinflip            |                    | Flip a coin and see if its Heads or Tails!              | !coinflip            |
+| Games      | !coinflip bet        | Amount to wager    | Place a wager on it landing Tails.                      | !coinflip bet 1000   |
+| Games      | !coinflip balance    |                    | Check your bank balance                                 | !coinflip balance    |
+| Games      | !coinflip reset      |                    | Restart your balance if you go broke.                   | !coinflip reset      |
+|            |                      |                    |                                                         |                      |
+| Moderation | !timeout             | @Mentioned User(s) | Disables the user(s) from participating in any channel. | !timeout @Tom @John  |
+| Moderation | !mute or !unmute     | @Mentioned User(s) | Disables/Enables user(s) to speak in any channel.       | !mute @Tom @John     |
 | Moderation | !deafen or !undeafen | @Mentioned User(s) | Disables/Enables user(s) to hear in any channel.        | !undeafen @Tom @John |
 
 
