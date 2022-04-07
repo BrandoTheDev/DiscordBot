@@ -10,4 +10,5 @@ public abstract class Command {
     public abstract String getDescription();
     public abstract HashMap<String, String> getUsage();
     public abstract void execute(MessageReceivedEvent event);
+
 }

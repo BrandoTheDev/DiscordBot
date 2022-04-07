@@ -1,6 +1,8 @@
 package Commands;
 
+import Commands.APIs.Weather.Weather;
 import Commands.Games.Gambling.Coinflip;
+import Commands.Info.HelpEmbed;
 import Commands.Misc.Ping;
 import Commands.Misc.Whois;
 import Commands.Moderation.*;
@@ -17,16 +19,17 @@ public class CommandFinder {
     private Command commandToRun;
 
     public CommandFinder() {
-        // TODO:
-        // Add new commands here
-        commandList.add(new Ping());
-        commandList.add(new Whois());
-        commandList.add(new Coinflip());
-        commandList.add(new Deafen());
-        commandList.add(new Undeafen());
-        commandList.add(new Mute());
-        commandList.add(new Unmute());
-        commandList.add(new Timeout());
+                                            // TODO:
+                                            // Add new commands here
+        commandList.add(new Ping());        // Misc
+        commandList.add(new Whois());       // Misc
+        commandList.add(new Coinflip());    // Games.Gambling
+        commandList.add(new Deafen());      // Moderation
+        commandList.add(new Undeafen());    // Moderation
+        commandList.add(new Mute());        // Moderation
+        commandList.add(new Unmute());      // Moderation
+        commandList.add(new Timeout());     // Moderation
+        commandList.add(new Weather());     // APIs.Weather
     }
 
     public boolean isCommand(String possibleCommand) {
