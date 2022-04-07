@@ -1,6 +1,7 @@
 package Commands;
 
 import Commands.Misc.Ping;
+import Commands.Misc.Whois;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -10,13 +11,14 @@ import java.util.List;
 
 public class CommandFinder {
     private MessageReceivedEvent event;
-    private final List<Command> commandList = new ArrayList<>();
+    private List<Command> commandList = new ArrayList<>();
     private Command commandToRun;
 
     public CommandFinder() {
         // TODO:
         // Add new commands here
         commandList.add(new Ping());
+        commandList.add(new Whois());
     }
 
     public boolean isCommand(String possibleCommand) {
@@ -45,11 +47,19 @@ public class CommandFinder {
 
     public void listCommands() {
         EmbedBuilder eb = new EmbedBuilder();
-        eb.setTitle("Commands: ");
-        eb.setTitle("a list of all commands available.");
+        eb.setTitle("List of commands and their description:");
+        eb.setColor(255);
+        eb.addBlankField(false);
+        int i = 0; // Counter to split commands by 4
         for(Command cmd : commandList) {
+            i++;
             eb.addField(cmd.getName(), cmd.getDescription(), true);
+            if(i % 4 == 0) {
+                eb.addBlankField(true);
+            }
         }
+        eb.addBlankField(false);
+        eb.setFooter("Use !help <command> for detailed help. Coming soon\u2122");
 
         this.event.getTextChannel().sendMessageEmbeds(eb.build()).queue();
     }

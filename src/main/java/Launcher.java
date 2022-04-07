@@ -20,7 +20,7 @@ public class Launcher {
 
         JDA jda = JDABuilder.createDefault(KeyHandler.DISCORDKEY)
                 .setActivity(Activity.competing("Minecraft."))
-                .setStatus(OnlineStatus.INVISIBLE) // Hide our online status for now
+                .setStatus(OnlineStatus.DO_NOT_DISTURB) // Changed to DND
                 .addEventListeners(new Ready())
                 .addEventListeners(new Messaging())
                 .build()
