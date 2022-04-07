@@ -1,53 +1,42 @@
 package Commands.Misc;
 
 import Commands.Command;
-import com.iwebpp.crypto.TweetNaclFast;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
 public class Whois extends Command {
-    private String name = "whois";
-    private String description = "Gives details on a @mentioned user";
+    private final Random random = new Random(System.currentTimeMillis());
     private final HashMap<String, String> usage = new HashMap<>();
-
-    private void addUsage() {
-        usage.put("!whois @mentionedUser", "Displays a card of the user with a fun fact!");
-    }
-
-    private List<User> mentionedUsers = new ArrayList<>();
-    private TextChannel textChannel;
 
     public Whois() {
         addUsage();
     }
 
-    private User user;
-
-    @Override
-    public String getName() {
-        return name;
+    private void addUsage() {
+        usage.put("!whois @mentionedUser", "Displays a card of the user with a fun fact!");
     }
 
-    @Override
-    public String getDescription() {
-        return description;
-    }
-
-    @Override
-    public HashMap<String, String> getUsage() {
-        return usage;
+    /**
+     * Basic function wrapper of random.nextInt
+     * Made for code readability.
+     * @param origin The lowest number you want
+     * @param bound The highest number you want
+     * @return an int between origin and bound
+     */
+    private int randomValue(int origin, int bound) {
+        return this.random.nextInt(origin, bound);
     }
 
     private String getFunFact() {
-        String[] facts = {"Likes vegemite on everything",
+        String[] facts = {
+                "Likes vegemite on everything",
                 "Paints their toenails",
                 "Sleeps with a body pillow",
                 "Made out with their cousin once",
@@ -60,40 +49,63 @@ public class Whois extends Command {
                 "Likes long walks on the beaches",
                 "Sings in the shower",
                 "Ate an entire box of crayons",
-                "Masturbates 9 times a day",
+                "Watches anime dubbed",
                 "Wears a diaper",
                 "Was held back 3 grades",
                 "Drinks pond water",
-                "Eats their own toenails"
+                "Eats their own toenails",
+                "Has 3 nipples",
+                "Only eats ant hills",
+                "Watches anime only in English dubbed"
         };
 
-        Random random = new Random();
-        int funnyNumber = random.nextInt(0, facts.length -1);
+        int funnyNumber = randomValue(0, facts.length -1);
         return facts[funnyNumber];
     }
 
-    private MessageEmbed whoisEmbed() {
-        Random random = new Random();
+    /**
+     * Creates a MessageEmbed (card) of the mentioned user
+     * @param user our mentioned user to create the card for
+     * @return MessageEmbed to send to a text channel
+     */
+    private MessageEmbed whoisEmbed(User user) {
+        int randomFactNumber = randomValue(50, 99);
+        int randomColor = randomValue(0, 255);
+
         EmbedBuilder eb = new EmbedBuilder();
         eb.setTitle(user.getName());
         eb.setDescription(user.getAsTag());
-        int randomFactNumber = random.nextInt(50, 99);
         eb.addField("Fun fact that's " + randomFactNumber + "% true:", getFunFact(), false);
         if(user.getAvatarUrl() != null){
             eb.setThumbnail(user.getAvatarUrl());
         } else {
             eb.setThumbnail(user.getDefaultAvatarUrl());
         }
-        int randomColor = random.nextInt(0, 255);
         eb.setColor(randomColor);
         return eb.build();
     }
 
     @Override
+    public String getName() {
+        return "whois";
+    }
+
+    @Override
+    public String getDescription() {
+        return "Gives details on a @mentioned user";
+    }
+
+    @Override
+    public HashMap<String, String> getUsage() {
+        return usage;
+    }
+
+    @Override
     public void execute(MessageReceivedEvent event) {
-        boolean emptyList = event.getMessage().getMentionedUsers().isEmpty();
-        mentionedUsers = event.getMessage().getMentionedUsers();
-        textChannel = event.getMessage().getTextChannel();
+
+        TextChannel textChannel = event.getMessage().getTextChannel();
+        List<User> mentionedUsers = event.getMessage().getMentionedUsers();
+        boolean emptyList = mentionedUsers.isEmpty();
 
         if(emptyList){
             textChannel.sendMessage("You need to @mention a user.").queue();
@@ -102,8 +114,8 @@ public class Whois extends Command {
         } else if (mentionedUsers.size() > 1){
             textChannel.sendMessage("Slow down detective! Lets whois 1 member at a time..").queue();
         } else {
-            this.user = mentionedUsers.get(0);
-            textChannel.sendMessageEmbeds(whoisEmbed()).queue();
+            User user = mentionedUsers.get(0);
+            textChannel.sendMessageEmbeds(whoisEmbed(user)).queue();
         }
     }
 }

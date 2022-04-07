@@ -3,6 +3,7 @@ package Commands;
 import Commands.Games.Gambling.Coinflip;
 import Commands.Misc.Ping;
 import Commands.Misc.Whois;
+import Commands.Moderation.*;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -12,7 +13,7 @@ import java.util.List;
 
 public class CommandFinder {
     private MessageReceivedEvent event;
-    private List<Command> commandList = new ArrayList<>();
+    private final List<Command> commandList = new ArrayList<>();
     private Command commandToRun;
 
     public CommandFinder() {
@@ -21,6 +22,11 @@ public class CommandFinder {
         commandList.add(new Ping());
         commandList.add(new Whois());
         commandList.add(new Coinflip());
+        commandList.add(new Deafen());
+        commandList.add(new Undeafen());
+        commandList.add(new Mute());
+        commandList.add(new Unmute());
+        commandList.add(new Timeout());
     }
 
     public boolean isCommand(String possibleCommand) {

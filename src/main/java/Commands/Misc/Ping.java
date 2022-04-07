@@ -6,27 +6,24 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import java.util.HashMap;
 
 public class Ping extends Command {
-    private final String name = "ping";
-    private final String description = "Have the bot respond with a pong!";
-
     private final HashMap<String, String> usage = new HashMap<>();
-
-    private void addUsage() {
-        usage.put("!ping", "No really, that's it.");
-    }
 
     public Ping() {
         addUsage();
     }
 
+    private void addUsage() {
+        usage.put("!ping", "No really, that's it.");
+    }
+
     @Override
     public String getName() {
-        return name;
+        return "ping";
     }
 
     @Override
     public String getDescription() {
-        return description;
+        return "Have the bot respond with a pong!";
     }
 
     @Override
