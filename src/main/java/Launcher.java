@@ -19,8 +19,8 @@ public class Launcher {
         LOG.info("Starting up the bot..");
 
         JDA jda = JDABuilder.createDefault(KeyHandler.DISCORDKEY)
-                .setActivity(Activity.competing("Minecraft."))
-                .setStatus(OnlineStatus.DO_NOT_DISTURB) // Changed to DND
+                .setActivity(Activity.watching("for !help"))
+                .setStatus(OnlineStatus.ONLINE)
                 .addEventListeners(new Ready())
                 .addEventListeners(new Messaging())
                 .build()

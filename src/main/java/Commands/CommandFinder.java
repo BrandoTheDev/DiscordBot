@@ -1,5 +1,6 @@
 package Commands;
 
+import Commands.Games.Gambling.Coinflip;
 import Commands.Misc.Ping;
 import Commands.Misc.Whois;
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -19,6 +20,7 @@ public class CommandFinder {
         // Add new commands here
         commandList.add(new Ping());
         commandList.add(new Whois());
+        commandList.add(new Coinflip());
     }
 
     public boolean isCommand(String possibleCommand) {
@@ -50,16 +52,11 @@ public class CommandFinder {
         eb.setTitle("List of commands and their description:");
         eb.setColor(255);
         eb.addBlankField(false);
-        int i = 0; // Counter to split commands by 4
         for(Command cmd : commandList) {
-            i++;
             eb.addField(cmd.getName(), cmd.getDescription(), true);
-            if(i % 4 == 0) {
-                eb.addBlankField(true);
-            }
         }
         eb.addBlankField(false);
-        eb.setFooter("Use !help <command> for detailed help. Coming soon\u2122");
+        eb.setFooter("Use !help <command> for usage help.");
 
         this.event.getTextChannel().sendMessageEmbeds(eb.build()).queue();
     }

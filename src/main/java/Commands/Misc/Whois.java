@@ -1,6 +1,7 @@
 package Commands.Misc;
 
 import Commands.Command;
+import com.iwebpp.crypto.TweetNaclFast;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.TextChannel;
@@ -8,15 +9,25 @@ import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
 public class Whois extends Command {
     private String name = "whois";
     private String description = "Gives details on a @mentioned user";
+    private final HashMap<String, String> usage = new HashMap<>();
+
+    private void addUsage() {
+        usage.put("!whois @mentionedUser", "Displays a card of the user with a fun fact!");
+    }
 
     private List<User> mentionedUsers = new ArrayList<>();
     private TextChannel textChannel;
+
+    public Whois() {
+        addUsage();
+    }
 
     private User user;
 
@@ -29,6 +40,12 @@ public class Whois extends Command {
     public String getDescription() {
         return description;
     }
+
+    @Override
+    public HashMap<String, String> getUsage() {
+        return usage;
+    }
+
     private String getFunFact() {
         String[] facts = {"Likes vegemite on everything",
                 "Paints their toenails",

@@ -1,4 +1,4 @@
 package Commands.Games;
 
-public class Blackjack {
+public class TestGame {
 }

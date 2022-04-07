@@ -20,6 +20,10 @@ public class HelpEmbed {
         EmbedBuilder eb = new EmbedBuilder();
         eb.setTitle(command.getName());
         eb.setDescription(command.getDescription());
+        eb.addBlankField(false);
+        for(String key : command.getUsage().keySet()) {
+            eb.addField(key,command.getUsage().get(key),false);
+        }
         eb.setColor(randomColor);
         return eb.build();
     }
