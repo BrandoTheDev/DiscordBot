@@ -35,19 +35,25 @@ public class Messaging extends ListenerAdapter {
                 // Check if user wants help
                 if(possibleCommand.equals("help")) {
 
-                    // Check if command is valid
-                    if(commandFinder.isCommand(possibleCommand)) {
-
-                        // Command is valid. Set our event to use
+                    if(messageArray.size() <= 1) {
+                        // If no command was given, show a list of commands available
                         commandFinder.setEvent(event);
-
-                        // Call our Help to show command info
-                        commandFinder.help(possibleCommand);
+                        commandFinder.listCommands();
                     }
-                }
+                    else {
+                        // Check if 2nd arg is valid command
+                        String possibleHelpCommand = messageArray.get(1);
+                        if(commandFinder.isCommand(possibleHelpCommand)) {
 
-                // Check if command is valid
-                if(commandFinder.isCommand(possibleCommand)) {
+                            // Command is valid. Set our event to use
+                            commandFinder.setEvent(event);
+
+                            // Call our Help to show command info
+                            commandFinder.help();
+                        }
+                    }
+                    // Check if command is valid
+                } else if(commandFinder.isCommand(possibleCommand)) {
 
                     // Command is valid. Set our event to use
                     commandFinder.setEvent(event);

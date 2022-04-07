@@ -1,6 +1,8 @@
 package Commands;
 
 import Commands.Misc.Ping;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.ArrayList;
@@ -31,12 +33,24 @@ public class CommandFinder {
         this.event = event;
     }
 
-    public void help(String possibleCommand) {
-        HelpEmbed helpEmbed = new HelpEmbed(possibleCommand);
-        helpEmbed.help();
+    public void help() {
+        HelpEmbed helpEmbed = new HelpEmbed(this.commandToRun);
+        MessageEmbed me = helpEmbed.createHelpEmbed();
+        this.event.getTextChannel().sendMessageEmbeds(me).queue();
     }
 
     public void run() {
         this.commandToRun.execute(this.event);
+    }
+
+    public void listCommands() {
+        EmbedBuilder eb = new EmbedBuilder();
+        eb.setTitle("Commands: ");
+        eb.setTitle("a list of all commands available.");
+        for(Command cmd : commandList) {
+            eb.addField(cmd.getName(), cmd.getDescription(), true);
+        }
+
+        this.event.getTextChannel().sendMessageEmbeds(eb.build()).queue();
     }
 }
