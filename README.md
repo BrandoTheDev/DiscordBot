@@ -2,7 +2,7 @@
 
 Java Automated Responses Verbally In Server.
 
-## Tools Used
+## Tools & Frameworks
 
 ```
 Java    - Our programming language of choice.
