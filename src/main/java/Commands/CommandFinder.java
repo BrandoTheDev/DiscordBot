@@ -1,5 +1,6 @@
 package Commands;
 
+import Commands.APIs.Dictionary.Whats;
 import Commands.APIs.Jokes.DadJoke;
 import Commands.APIs.Weather.Weather;
 import Commands.Games.Gambling.Coinflip;
@@ -32,6 +33,7 @@ public class CommandFinder {
         commandList.add(new Timeout());     // Moderation
         commandList.add(new Weather());     // APIs.Weather
         commandList.add(new DadJoke());     // APIs.Jokes
+        commandList.add(new Whats());         // APIs.Google
     }
 
     public boolean isCommand(String possibleCommand) {
