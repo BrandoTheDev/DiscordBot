@@ -19,6 +19,7 @@ Jsoup   - HTML Parser, used for webscraping sites.
 | Info       | !help                | Command name       | Usage details on how a command works.                   | !help ping           |
 |            |                      |                    |                                                         |                      |
 | API        | !joke                |                    | Have the bot tell you a knee-slappin dad joke!          | !joke                |
+| API        | !whats               | Search term        | Get the dictionary definition for a term                | !whats butane        |
 | API        | !weather             | Zipcode            | Get a current weather forecast!                         | !weather 96793       |
 |            |                      |                    |                                                         |                      |
 | Misc       | !ping                |                    | Have the bot respond with a Pong!                       | !ping                |
