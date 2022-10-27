@@ -2,16 +2,6 @@
 ``
 A utility bot used to manage channels, users, games and more!
 `` 
-
-## Tools & Frameworks
-
-```
-Java    - Our programming language of choice.
-Maven   - Build automation tool.
-JDA*    - Java Discord API (Discord API Wrapper)
-Jsoup   - HTML Parser, used for webscraping sites.
-```
-
 ## Commands
 
 | Category   | Command              | Arguments          | Result                                                  | Example Usage        |
@@ -35,12 +25,29 @@ Jsoup   - HTML Parser, used for webscraping sites.
 | Moderation | !mute or !unmute     | @Mentioned User(s) | Disables/Enables user(s) to speak in any channel.       | !mute @Tom @John     |
 | Moderation | !deafen or !undeafen | @Mentioned User(s) | Disables/Enables user(s) to hear in any channel.        | !undeafen @Tom @John |
 
+## Tools & Frameworks
 
-## Key takeaways:
 ```
-Using another's API to add functionality to my code.
-Learning how to webscrape with Java using Jsoup.
-Using build automation tools like Maven.
+Java    - Our programming language of choice.
+Maven   - Build automation tool.
+JDA*    - Java Discord API (Discord API Wrapper)
+Jsoup   - HTML Parser, used for webscraping sites.
+```
+
+## The why & who it's for (TLDR Below):
+```
+I've always been fascinated with chat bots. I got my first experience on Internet Relay Chat
+and built my first "user client bot" within the mIRC client using mIRC Scripting Language (MSL).
+Watching how fast the bot responded and that no one was behind the screen manually pushing buttons 
+expanded my mind and got me hooked on scripts and automation. I have created a vast amounts of bots 
+in python but nothing with OOP and very messy code. JARVIS is my first attempt at a clean chat bot.
+
+This bot is for someone who is also fascinated by chat bots and would like to see one at a simple level,
+yet uses programming concepts to the best of their ability. Im going to try to keep it simple and not overwhelming
+as that is a big factor that kept me away from programming. If you want a professional bot with lots of features,
+this is your turn away warning. Once I polish it and ask for tips I am going to archive it as a simple clean bot.
+
+TLDR: I love bots. I'm going to keep this one simple and archive it in the future. -Thanks for looking.
 ```
 
 ## License
