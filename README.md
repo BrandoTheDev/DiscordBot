@@ -1,4 +1,7 @@
 # JARVIS (Discord Bot)
+``
+A utility bot used to manage channels, users, games and more!
+`` 
 
 ## Tools & Frameworks
 
