@@ -1,11 +1,5 @@
 # JARVIS (Discord Bot)
 
-Java Automatically Responds Verbally In Server.
-`` (I just made this up before uploading it.)
-``
-
-  [![Heroku](https://heroku-badge.herokuapp.com/?app=heroku-badge)]()
-
 ## Tools & Frameworks
 
 ```
@@ -39,22 +33,11 @@ Jsoup   - HTML Parser, used for webscraping sites.
 | Moderation | !deafen or !undeafen | @Mentioned User(s) | Disables/Enables user(s) to hear in any channel.        | !undeafen @Tom @John |
 
 
-## How to use
+## Key takeaways:
 ```
-Please don't. No, seriously! 
-
-This is a Minimal Viable Product (MVP)
-
-There are a lot of things I still need to implement, refactor and catch.. 
-looking at you, exceptions.
-
-I have made this bot specifically for my server and some things may be hard coded!
-
-However.. If you see something you like that I wrote,
-then please grab it and use it for an example in your bot! 
-
-Cheers,
-Brando!
+Using another's API to add functionality to my code.
+Learning how to webscrape with Java using Jsoup.
+Using build automation tools like Maven.
 ```
 
 ## License
